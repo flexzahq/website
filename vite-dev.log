@@ -8,3 +8,9 @@
   [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5174[22m/[39m
 [2m10:35:01 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Navbar/Navbar.tsx, /src/styles.css[22m
 [2m10:35:02 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Footer/Footer.tsx, /src/styles.css[22m
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m changed tsconfig file detected: D:/Work/Flexza/website/tsconfig.app.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m changed tsconfig file detected: D:/Work/Flexza/website/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m10:52:42 pm[22m [36m[1m[vite][22m[39m server restarted.
