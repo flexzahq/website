@@ -1,0 +1,24 @@
+import { comparisonRows } from "../../lib/constants";
+import { SectionHeader } from "../ui/SectionHeader";
+
+export function Comparison() {
+  return (
+    <section className="py-20">
+      <div className="section-shell">
+        <SectionHeader eyebrow="Why Flexza" title="Replace manual chaos with visible, digital flow." />
+        <div className="mt-12 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-soft">
+          <div className="grid grid-cols-2 bg-ink text-sm font-extrabold uppercase text-white">
+            <div className="p-5">Traditional Queue</div>
+            <div className="bg-primary p-5">Flexza</div>
+          </div>
+          {comparisonRows.map(([traditional, flexza]) => (
+            <div key={traditional} className="grid grid-cols-2 border-t border-black/5 text-sm font-bold sm:text-base">
+              <div className="p-5 text-muted">{traditional}</div>
+              <div className="border-l border-black/5 bg-secondary/60 p-5 text-ink">{flexza}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
