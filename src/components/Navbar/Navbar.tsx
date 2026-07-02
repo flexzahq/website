@@ -7,7 +7,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-xl">
       <nav className="section-shell flex h-16 items-center justify-between" aria-label="Main navigation">
-        <a href="#top" className="flex items-center gap-3 font-extrabold text-ink" aria-label="Flexza home">
+        <a href="#top" className="flex items-center gap-2 font-extrabold text-ink" aria-label="Flexza home">
           <img src={logoPrimary} alt="" className="h-8 w-7 object-contain" />
           <span className="text-xl">Flexza</span>
         </a>

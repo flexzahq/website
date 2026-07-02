@@ -10,6 +10,7 @@ export function Benefits() {
         <SectionHeader
           eyebrow="Benefits"
           title="Designed for both sides of the waiting room."
+          titleClassName="text-white"
           description="Patients get clarity. Clinics get control. Everyone gets a calmer day."
         />
         <motion.div
@@ -20,7 +21,7 @@ export function Benefits() {
           variants={stagger}
         >
           {benefitGroups.map((group) => (
-            <motion.article key={group.title} variants={fadeUp} className="rounded-3xl border border-white/10 bg-white/[0.06] p-7">
+            <motion.article key={group.title} variants={fadeUp} className="rounded-3xl border border-white/10 bg-white/[0.06] p-7 text-white">
               <h3 className="text-2xl font-extrabold">{group.title}</h3>
               <ul className="mt-6 space-y-4">
                 {group.items.map((item) => (

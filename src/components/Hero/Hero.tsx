@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Activity, Clock3, UsersRound } from "lucide-react";
 import { AnimatedCounter } from "../ui/AnimatedCounter";
+import { AnimatedWord } from "../ui/AnimatedWord";
 import { Button } from "../ui/Button";
 
 function PhoneMockup() {
@@ -78,8 +79,8 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <span className="eyebrow">Digital queue management for modern clinics</span>
-          <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-normal text-ink sm:text-6xl lg:text-7xl">
-            Stop Waiting. Start Managing Smarter.
+          <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.02] tracking-normal text-ink sm:text-6xl lg:text-6xl">
+            Stop Waiting. Start Managing <AnimatedWord words={["Smarter", "Faster", "Better"]} />.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
             Flexza helps clinics manage patient queues digitally while patients track their live token from anywhere.
