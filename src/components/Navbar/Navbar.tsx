@@ -2,6 +2,7 @@ import { Menu } from "lucide-react";
 import { navItems } from "../../lib/constants";
 import logoPrimary from "../../assets/flexza-logo-primary.svg";
 import { Button } from "../ui/Button";
+import { openLeadPopup } from "../CTA/LeadPopup";
 
 export function Navbar() {
   return (
@@ -19,10 +20,12 @@ export function Navbar() {
           ))}
         </div>
         <div className="hidden items-center gap-3 sm:flex">
-          <Button variant="secondary" className="min-h-10 px-5">
+          <Button variant="secondary" className="min-h-10 px-5" onClick={openLeadPopup}>
             Book Demo
           </Button>
-          <Button className="min-h-10 px-5">Early Access</Button>
+          <Button className="min-h-10 px-5" onClick={openLeadPopup}>
+            Early Access
+          </Button>
         </div>
         <button
           type="button"

@@ -1,4 +1,5 @@
 import { Button } from "../ui/Button";
+import { openLeadPopup } from "./LeadPopup";
 
 export function FinalCTA() {
   return (
@@ -10,8 +11,12 @@ export function FinalCTA() {
             Start with a lightweight digital queue, then grow into analytics, history, and branded patient experiences.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button showArrow>Get Early Access</Button>
-            <Button variant="secondary">Book Demo</Button>
+            <Button showArrow onClick={openLeadPopup}>
+              Get Early Access
+            </Button>
+            <Button variant="secondary" onClick={openLeadPopup}>
+              Book Demo
+            </Button>
           </div>
         </div>
       </div>

@@ -25,12 +25,12 @@ export function HowItWorks() {
           <div className="absolute left-0 right-0 top-11 hidden h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent lg:block" />
           {steps.map((step, index) => (
             <motion.article key={step.title} variants={fadeUp} className="relative premium-card p-6 text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-secondary text-primary">
-                <step.icon className="h-8 w-8" aria-hidden="true" />
-              </div>
               <span className="mt-5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-extrabold text-white">
                 {index + 1}
               </span>
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-secondary text-primary">
+                <step.icon className="h-8 w-8" aria-hidden="true" />
+              </div>
               <h3 className="mt-4 text-lg font-extrabold text-ink">{step.title}</h3>
               {index < steps.length - 1 ? (
                 <motion.span

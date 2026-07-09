@@ -3,58 +3,36 @@ import { Activity, Clock3, UsersRound } from "lucide-react";
 import { AnimatedCounter } from "../ui/AnimatedCounter";
 import { AnimatedWord } from "../ui/AnimatedWord";
 import { Button } from "../ui/Button";
+import { openLeadPopup } from "../CTA/LeadPopup";
+import bookerMock from "../../assets/Booker.png";
+import vendorMock from "../../assets/Vendor.png";
 
 function PhoneMockup() {
   return (
-    <motion.div
-      className="relative mx-auto w-full max-w-[340px]"
-      animate={{ y: [0, -12, 0] }}
-      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-    >
+    <div className="relative mx-auto w-full max-w-[420px]">
       <div className="absolute -left-12 top-20 hidden h-24 w-24 rounded-full bg-secondary blur-2xl sm:block" />
       <div className="absolute -right-10 bottom-20 h-28 w-28 rounded-full bg-primary/20 blur-2xl" />
-      <div className="relative rounded-[2.5rem] border border-black/10 bg-ink p-3 shadow-glow">
-        <div className="rounded-[2rem] bg-[#f7fbfa] p-5">
-          <div className="mx-auto mb-5 h-1.5 w-20 rounded-full bg-black/10" />
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase text-primary">Aarogya Clinic</p>
-              <h3 className="mt-1 text-xl font-extrabold text-ink">Live Token</h3>
-            </div>
-            <div className="rounded-full bg-secondary p-3 text-primary">
-              <Activity className="h-5 w-5" />
-            </div>
-          </div>
-          <div className="mt-6 rounded-3xl bg-primary p-5 text-white shadow-glow">
-            <p className="text-sm font-semibold text-white/80">Your token</p>
-            <div className="mt-2 flex items-end justify-between">
-              <span className="text-6xl font-extrabold">A-24</span>
-              <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-bold">Active</span>
-            </div>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-white p-4 shadow-sm">
-              <UsersRound className="h-5 w-5 text-primary" />
-              <p className="mt-3 text-xs font-semibold text-muted">Current Queue</p>
-              <p className="text-2xl font-extrabold text-ink">A-19</p>
-            </div>
-            <div className="rounded-2xl bg-white p-4 shadow-sm">
-              <Clock3 className="h-5 w-5 text-primary" />
-              <p className="mt-3 text-xs font-semibold text-muted">Estimated Wait</p>
-              <p className="text-2xl font-extrabold text-ink">18m</p>
-            </div>
-          </div>
-          <div className="mt-4 space-y-3 rounded-2xl bg-white p-4 shadow-sm">
-            {["A-20 in consultation", "A-21 ready soon", "A-22 checked in"].map((item) => (
-              <div key={item} className="flex items-center gap-3 text-sm font-semibold text-muted">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
+
+      <div className="relative flex items-center justify-center">
+        <motion.img
+          src={vendorMock}
+          alt="Vendor mockup"
+          className="block w-[220px] sm:w-[280px] md:w-[300px] rounded-2xl shadow-xl object-cover absolute -left-6 top-2 md:relative md:left-0 md:top-0 z-0 opacity-90"
+          initial={{ rotate: -3, scale: 0.98, x: 0, y: 0 }}
+          animate={{ rotate: [-3, 0, -3], y: [0, -4, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.img
+          src={bookerMock}
+          alt="Booker mockup"
+          className="relative w-[200px] sm:w-[240px] md:relative md:-ml-8 md:w-[260px] rounded-[20px] shadow-glow object-cover mx-auto z-10"
+          initial={{ y: 0, rotate: 0, scale: 1 }}
+          animate={{ y: [0, -8, 0], rotate: [0, 4, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -86,8 +64,12 @@ export function Hero() {
             Flexza helps clinics manage patient queues digitally while patients track their live token from anywhere.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button showArrow>Get Early Access</Button>
-            <Button variant="secondary">Book Free Demo</Button>
+            <Button showArrow onClick={openLeadPopup}>
+              Get Early Access
+            </Button>
+            <Button variant="secondary" onClick={openLeadPopup}>
+              Book Free Demo
+            </Button>
           </div>
           <div className="mt-8 grid max-w-xl grid-cols-3 gap-3">
             <AnimatedCounter value={10} suffix="+" label="Early clinics" />

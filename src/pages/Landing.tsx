@@ -8,6 +8,7 @@ import { Footer } from "../components/Footer/Footer";
 import { Hero } from "../components/Hero/Hero";
 import { HowItWorks } from "../components/HowItWorks/HowItWorks";
 import { Navbar } from "../components/Navbar/Navbar";
+import { LeadPopup } from "../components/CTA/LeadPopup";
 import { Problems } from "../components/Problems/Problems";
 import { ScreensPreview } from "../components/ScreensPreview/ScreensPreview";
 import { Solution } from "../components/Solution/Solution";
@@ -18,7 +19,7 @@ export default function Landing() {
     <main className="overflow-hidden bg-[#fbfdfc] text-ink">
       <Navbar />
       <Hero />
-      <TrustedBy />
+
       <Problems />
       <Solution />
       <HowItWorks />
@@ -26,10 +27,10 @@ export default function Landing() {
       <Comparison />
       <Features />
       <ScreensPreview />
-      <EarlyAccessBanner />
       <FAQ />
-      <FinalCTA />
+      <EarlyAccessBanner />
       <Footer />
+      <LeadPopup />
     </main>
   );
 }
