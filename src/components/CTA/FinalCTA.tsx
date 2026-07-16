@@ -1,10 +1,11 @@
 import { Button } from "../ui/Button";
+import { ScrollReveal } from "../ui/ScrollReveal";
 import { openLeadPopup } from "./LeadPopup";
 
 export function FinalCTA() {
   return (
     <section className="py-20">
-      <div className="section-shell text-center">
+      <ScrollReveal className="section-shell text-center">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-4xl font-extrabold tracking-normal text-ink sm:text-5xl">Ready to modernize your clinic?</h2>
           <p className="mt-5 text-lg leading-8 text-muted">
@@ -19,7 +20,7 @@ export function FinalCTA() {
             </Button>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

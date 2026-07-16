@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import { solutionItems } from "../../lib/constants";
 import { fadeUp, stagger } from "../../lib/motion";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function Solution() {
   return (
     <section id="solution" className="bg-secondary/55 py-20">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader
           eyebrow="Our Solution"
           title="One Platform. Better Experience."
@@ -34,7 +35,7 @@ export function Solution() {
             </motion.article>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

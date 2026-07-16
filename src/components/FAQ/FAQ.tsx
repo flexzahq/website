@@ -3,14 +3,15 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { faqs } from "../../lib/constants";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <section id="faq" className="bg-secondary/55 py-20">
-      <div className="section-shell max-w-4xl">
-        <SectionHeader eyebrow="FAQ" title="Questions clinic owners usually ask first." />
+      <ScrollReveal className="section-shell max-w-4xl">
+        <SectionHeader eyebrow="FAQ" title="Questions peopleusually ask first." />
         <div className="mt-10 space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -45,7 +46,7 @@ export function FAQ() {
             );
           })}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import { problemItems } from "../../lib/constants";
 import { fadeUp, stagger } from "../../lib/motion";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function Problems() {
   return (
     <section id="problems" className="py-20">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader eyebrow="Current Problems" title="Waiting Shouldn't Be This Frustrating" />
         <motion.div
           className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
@@ -24,7 +25,7 @@ export function Problems() {
             </motion.article>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

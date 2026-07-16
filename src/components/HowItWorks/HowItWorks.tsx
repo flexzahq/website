@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link2, ShieldCheck, Ticket, Waves } from "lucide-react";
 import { fadeUp, stagger } from "../../lib/motion";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 const steps = [
   { title: "Scan QR or Open Clinic Link", icon: Link2 },
@@ -13,7 +14,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="py-20">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader eyebrow="How It Works" title="From check-in to consultation in four simple steps." />
         <motion.div
           className="relative mt-14 grid gap-5 lg:grid-cols-4"
@@ -25,12 +26,10 @@ export function HowItWorks() {
           <div className="absolute left-0 right-0 top-11 hidden h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent lg:block" />
           {steps.map((step, index) => (
             <motion.article key={step.title} variants={fadeUp} className="relative premium-card p-6 text-center">
-              <span className="mt-5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-extrabold text-white">
+              <span className="mt-5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-extrabold text-white">
                 {index + 1}
               </span>
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-secondary text-primary">
-                <step.icon className="h-8 w-8" aria-hidden="true" />
-              </div>
+              
               <h3 className="mt-4 text-lg font-extrabold text-ink">{step.title}</h3>
               {index < steps.length - 1 ? (
                 <motion.span
@@ -43,7 +42,7 @@ export function HowItWorks() {
             </motion.article>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

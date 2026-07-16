@@ -1,9 +1,10 @@
 import { Button } from "../ui/Button";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function EarlyAccessBanner() {
   return (
     <section className="py-16">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <div className="relative overflow-hidden rounded-[2rem] bg-primary px-6 py-12 text-center text-white shadow-glow sm:px-10 lg:px-16">
           <div className="absolute -left-10 -top-10 h-36 w-36 rounded-full bg-white/15" />
           <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-white/12" />
@@ -20,7 +21,7 @@ export function EarlyAccessBanner() {
             </Button>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

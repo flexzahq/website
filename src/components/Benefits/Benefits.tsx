@@ -1,12 +1,13 @@
 import { benefitGroups, CheckIcon } from "../../lib/constants";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../lib/motion";
 
 export function Benefits() {
   return (
     <section className="bg-ink py-20 text-white">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader
           eyebrow="Benefits"
           title="Designed for both sides of the waiting room."
@@ -34,7 +35,7 @@ export function Benefits() {
             </motion.article>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

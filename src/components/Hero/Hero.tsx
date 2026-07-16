@@ -3,9 +3,10 @@ import { Activity, Clock3, UsersRound } from "lucide-react";
 import { AnimatedCounter } from "../ui/AnimatedCounter";
 import { AnimatedWord } from "../ui/AnimatedWord";
 import { Button } from "../ui/Button";
+import { ScrollReveal } from "../ui/ScrollReveal";
 import { openLeadPopup } from "../CTA/LeadPopup";
-import bookerMock from "../../assets/Booker.png";
-import vendorMock from "../../assets/Vendor.png";
+import bookerMock from "../../assets/booker_1_5x.webp";
+import vendorMock from "../../assets/vendor_1_5x.webp";
 
 function PhoneMockup() {
   return (
@@ -50,7 +51,7 @@ export function Hero() {
         animate={{ y: [0, -16, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="section-shell grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+      <ScrollReveal className="section-shell grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +79,7 @@ export function Hero() {
           </div>
         </motion.div>
         <PhoneMockup />
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

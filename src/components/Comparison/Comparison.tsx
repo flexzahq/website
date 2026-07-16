@@ -1,10 +1,11 @@
 import { comparisonRows } from "../../lib/constants";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function Comparison() {
   return (
     <section className="py-20">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader eyebrow="Why Flexza" title="Replace manual chaos with visible, digital flow." />
         <div className="mt-12 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-soft">
           <div className="grid grid-cols-2 bg-ink text-sm font-extrabold uppercase text-white">
@@ -18,7 +19,7 @@ export function Comparison() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { trustedLogos } from "../../lib/constants";
 import { fadeUp, stagger } from "../../lib/motion";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function TrustedBy() {
   return (
     <section className="py-12">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <motion.p
           className="text-center text-base font-semibold text-muted"
           initial="hidden"
@@ -32,7 +33,7 @@ export function TrustedBy() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

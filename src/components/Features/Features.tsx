@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import { featureItems } from "../../lib/constants";
 import { fadeUp, stagger } from "../../lib/motion";
 import { SectionHeader } from "../ui/SectionHeader";
+import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function Features() {
   return (
     <section id="features" className="bg-secondary/55 py-20">
-      <div className="section-shell">
+      <ScrollReveal className="section-shell">
         <SectionHeader eyebrow="Features" title="Everything a growing service business needs to manage tokens." />
         <motion.div
           className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-5"
@@ -27,7 +28,7 @@ export function Features() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
