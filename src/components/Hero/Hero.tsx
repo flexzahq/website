@@ -18,16 +18,14 @@ function PhoneMockup() {
           src={vendorMock}
           alt="Vendor mockup"
           className="
-            absolute
-            top-4 x
-            -translate-x-[55%]
+            relative
+            z-0
+            mr-[-64px]
             w-[220px]
             object-cover
-            sm:left-0
-            sm:translate-x-0
-            sm:relative
+            sm:mr-[-80px]
             sm:w-[280px]
-            md:-ml-4
+            md:mr-[-96px]
             md:w-[300px]
           "
           initial={{ rotate: -3, scale: 0.98 }}
@@ -51,9 +49,7 @@ function PhoneMockup() {
             z-10
             w-[200px]
             object-cover
-            sm:right-0http://localhost:5173/
             sm:w-[240px]
-            md:-ml-8
             md:w-[260px]
           "
           initial={{ rotate: 0 }}

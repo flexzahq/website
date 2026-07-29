@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Loader2, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import logo from "../../assets/flexza-logo-primary.svg";
+import manImage from "../../assets/man.webp";
+import { Button } from "../ui/Button";
 
 type FormState = {
   name: string;
@@ -107,14 +109,9 @@ export function LeadPopup() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => openLeadPopup()}
-        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#4c8f8a]"
-      >
-        <Sparkles className="h-4 w-4" />
+      <Button variant="primary" onClick={openLeadPopup} className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#4c8f8a]" >
         Request a demo
-      </button>
+      </Button>
 
       <AnimatePresence>
         {isOpen ? (
@@ -129,34 +126,16 @@ export function LeadPopup() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
               transition={{ duration: 0.2 }}
-              className="w-full max-w-4xl overflow-hidden rounded-3xl border border-black/5 bg-white shadow-2xl"
+              className="w-full max-w-3xl overflow-hidden rounded-3xl border border-black/5 bg-white shadow-2xl"
             >
               <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="bg-[radial-gradient(circle_at_top_left,_rgba(94,179,170,0.18),_transparent_55%)] p-6 sm:p-8 lg:p-10">
-                  <div className="flex items-center gap-3">
-                    <img src={logo} alt="Flexza logo" className="h-10 w-10" />
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Flexza</p>
-                      <h3 className="text-xl font-bold text-ink">Make every queue feel effortless</h3>
-                    </div>
+                <div className="flex items-center justify-center bg-[radial-gradient(circle_at_top_left,_rgba(94,179,170,0.18),_transparent_55%)] p-6 sm:p-8 lg:p-6">
+
+                  <div className="rounded-2xl">
+                    <img src={manImage} alt="Customer representative" className="mx-auto h-auto w-full sm:max-w-[300px] rounded-2xl object-cover" />
                   </div>
 
-                  <div className="mt-6 rounded-2xl border border-primary/10 bg-white/80 p-4 shadow-sm">
-                    <img src={logo} alt="Product preview" className="mx-auto h-20 w-20 rounded-2xl bg-[#f6fcfa] p-3" />
-                    <p className="mt-4 text-sm font-semibold text-primary">Smart queue & customer updates</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Let customers know exactly what is happening, reduce wait-time anxiety, and keep your team aligned from the first check-in to the final handoff.
-                    </p>
-                  </div>
 
-                  <div className="mt-6 rounded-2xl bg-ink p-4 text-sm text-white/90">
-                    <p className="font-semibold text-white">Why teams love Flexza</p>
-                    <ul className="mt-2 space-y-2 text-sm text-white/80">
-                      <li>• Live queue updates for customers and staff</li>
-                      <li>• Fewer missed handoffs and no more confusion</li>
-                      <li>• A polished experience that feels premium</li>
-                    </ul>
-                  </div>
                 </div>
 
                 <div className="relative p-6 sm:p-8 lg:p-10">
@@ -170,11 +149,8 @@ export function LeadPopup() {
                   </button>
 
                   <div className="max-w-md">
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Get in touch</p>
-                    <h3 className="mt-2 text-2xl font-bold text-ink">Tell us about yourself</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Share your name and mobile number and we will contact you with the best plan for your team.
-                    </p>
+                    <p className="text-sm font-semibold uppercase text-primary">Get in touch</p>
+                    <h3 className="mt-2 text-2xl font-bold text-ink">Fill out the form</h3>
 
                     <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                       <label className="block text-sm font-medium text-slate-700">
@@ -207,7 +183,7 @@ export function LeadPopup() {
                         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#4c8f8a] disabled:cursor-not-allowed disabled:opacity-70"
                       >
                         {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-                        {isSubmitting ? "Sending request..." : "Send request"}
+                        {isSubmitting ? "Sending request..." : "Book a Callback"}
                       </button>
                     </form>
 
