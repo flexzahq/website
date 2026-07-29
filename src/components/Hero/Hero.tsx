@@ -10,33 +10,67 @@ import vendorMock from "../../assets/vendor_1_5x.webp";
 
 function PhoneMockup() {
   return (
-    <div className="relative mx-auto w-full max-w-[420px]">
-      <div className="absolute -left-12 top-20 hidden h-24 w-24 rounded-full bg-secondary blur-2xl sm:block" />
-      <div className="absolute -right-10 bottom-20 h-28 w-28 rounded-full bg-primary/20 blur-2xl" />
+    <div className="relative mx-auto flex w-full max-w-[420px] justify-center">
+      <div className="relative flex items-center justify-center h-[480px] w-full">
 
-      <div className="relative flex items-center justify-center">
+        {/* Back phone */}
         <motion.img
           src={vendorMock}
           alt="Vendor mockup"
-          className="block w-[220px] sm:w-[280px] md:w-[300px] rounded-2xl shadow-xl object-cover absolute -left-6 top-2 md:relative md:left-0 md:top-0 z-0 opacity-90"
-          initial={{ rotate: -3, scale: 0.98, x: 0, y: 0 }}
-          animate={{ rotate: [-3, 0, -3], y: [0, -4, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute
+            top-4 x
+            -translate-x-[55%]
+            w-[220px]
+            object-cover
+            sm:left-0
+            sm:translate-x-0
+            sm:relative
+            sm:w-[280px]
+            md:-ml-4
+            md:w-[300px]
+          "
+          initial={{ rotate: -3, scale: 0.98 }}
+          animate={{
+            rotate: [-3, 0, -3],
+            y: [0, -4, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
 
+        {/* Front phone */}
         <motion.img
           src={bookerMock}
           alt="Booker mockup"
-          className="relative w-[200px] sm:w-[240px] md:relative md:-ml-8 md:w-[260px] rounded-[20px] shadow-glow object-cover mx-auto z-10"
-          initial={{ y: 0, rotate: 0, scale: 1 }}
-          animate={{ y: [0, -8, 0], rotate: [0, 4, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            relative
+            z-10
+            w-[200px]
+            object-cover
+            sm:right-0http://localhost:5173/
+            sm:w-[240px]
+            md:-ml-8
+            md:w-[260px]
+          "
+          initial={{ rotate: 0 }}
+          animate={{
+            y: [0, -8, 0],
+            rotate: [0, 4, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
       </div>
     </div>
   );
 }
-
 export function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden pb-20 pt-28 sm:pt-32 lg:pb-28">

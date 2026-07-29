@@ -13,7 +13,7 @@ const screenImages = [
   { title: "Patient Home", src: booker1 },
   { title: "Enter Mobile no", src: bookingPopup1 },
   { title: "Verify & Enter Name", src: bookingPopup2 },
-  { title: "Book Token", src: bookingPopup },
+  { title: "Token Booked", src: bookingPopup },
   { title: "Doctor Login", src: loginVendor },
   { title: "Doctor Dashboard", src: tokenVendor },
   { title: "Booked Token", src: bookinghome },
@@ -73,14 +73,14 @@ export function ScreensPreview() {
     <section className="py-20">
       <ScrollReveal className="section-shell">
         <SectionHeader eyebrow="Screens Preview" title="Polished placeholders ready for your real product screens." />
-        <div className="mt-10">
+        <div className="mt-10"> 
           <div className="mx-auto max-w-[90vw] px-4 sm:px-6">
             <div ref={railRef} className="no-scrollbar">
               <div ref={trackRef} className="flex gap-4" style={{ minWidth: "max-content" }}>
                 {[...screenImages, ...screenImages].map((screen, index) => (
-                  <div key={`${screen.title}-${index}`} className="min-w-[260px] sm:min-w-[220px] md:min-w-[240px] lg:min-w-[260px] rounded-[1.25rem]">
+                  <div key={`${screen.title}-${index}`} className="min-w-[260px] sm:min-w-[100px] md:min-w-[240px] lg:min-w-[260px] rounded-[1.25rem]">
                     <div className="rounded-[1.25rem] overflow-hidden">
-                      <img src={screen.src} alt={screen.title} className="w-full object-contain md:h-[320px] lg:h-[400px]" />
+                      <img src={screen.src} alt={screen.title} className="w-full object-contain md:h-[320px] lg:h-[400px] sm:h-[200px]" />
                     </div>
                     <div className="p-3 text-center">
                       <h3 className="text-base font-semibold text-ink">{screen.title}</h3>
