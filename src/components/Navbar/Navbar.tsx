@@ -7,14 +7,14 @@ import { openLeadPopup } from "../CTA/LeadPopup";
 export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-xl">
-      <nav className="section-shell flex h-16 items-center justify-between" aria-label="Main navigation">
+      <nav className="section-shell flex h-20 items-center justify-between" aria-label="Main navigation">
         <a href="#top" className="flex items-center gap-2 font-extrabold text-ink" aria-label="Flexza home">
-          <img src={logoPrimary} alt="" className="h-8 w-7 object-contain" />
-          <span className="text-xl">Flexza</span>
+          <img src={logoPrimary} alt="" className="h-12 w-7 object-contain" />
+          <span className="text-3xl">Flexza</span>
         </a>
         <div className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-semibold text-muted transition hover:text-ink">
+            <a key={item.href} href={item.href} className="text-md font-semibold text-muted transition hover:text-ink">
               {item.label}
             </a>
           ))}

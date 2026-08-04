@@ -100,14 +100,14 @@ export const trustedLogos = ["Aarogya Care", "Nova Clinic", "Smile Studio", "Urb
 export const benefitGroups = [
   {
     title: "Patients",
-    items: ["Less waiting", "Live queue tracking", "Book again easily", "Visit history", "Mobile friendly"],
+    items: ["Visit history","Less waiting", "Live queue tracking", "Book again easily", "Mobile friendly"],
   },
   {
     title: "Clinics",
     items: [
+      "Digital records",
       "Better queue management",
       "Reduced reception workload",
-      "Digital records",
       "Improved patient experience",
       "Higher operational efficiency",
     ],
@@ -115,10 +115,34 @@ export const benefitGroups = [
 ];
 
 export const footerGroups = [
-  { title: "Product", links: ["Features", "Pricing (Coming Soon)", "FAQ"] },
-  { title: "Company", links: ["About", "Contact"] },
-  { title: "Legal", links: ["Privacy Policy", "Terms"] },
-  { title: "Social", links: ["LinkedIn", "Instagram"] },
+  {
+    title: "Product",
+    links: [
+      { label: "Features", href: "#features" },
+      { label: "Pricing (Coming Soon)", href: "#top" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#about" },
+      { label: "Contact", href: "#contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "#privacy-policy" },
+      { label: "Terms of Service", href: "#terms-of-service" },
+    ],
+  },
+  {
+    title: "Follow Us",
+    links: [
+      { label: "Instagram", href: "https://www.instagram.com/flexza_in/" },
+    ],
+  },
 ];
 
 export const CheckIcon = CheckCircle2;

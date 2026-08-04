@@ -28,19 +28,19 @@ export function Benefits() {
             const imageAlt = group.title === "Patients" ? "Patient mobile mockup" : "Clinic mobile mockup";
 
             return (
-              <motion.article key={group.title} variants={fadeUp} className="group flex relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] p-7 text-white">
-                <div><h3 className="text-2xl font-extrabold">{group.title}</h3>
+              <motion.article key={group.title} variants={fadeUp} className="group flex flex-col items-center gap-6 sm:flex-row sm:items-start relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] p-7 text-white">
+                <div className="w-full text-center sm:text-left"><h3 className="text-2xl font-extrabold">{group.title}</h3>
                   <ul className="mt-6 space-y-4">
                     {group.items.map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-base font-semibold text-white/80">
+                      <li key={item} className="flex items-center justify-center gap-3 text-base font-semibold text-white/80 sm:justify-start sm:text-left">
                         <CheckIcon className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
                         {item}
                       </li>
                     ))}
                   </ul></div>
 
-                <div className="pointer-events-none inset-x-0 bottom-0">
-                  <div className="mx-auto flex w-full justify-end px-6">
+                <div className="flex flex-1 items-center sm:justify-end">
+                  <div className="mx-auto flex w-full justify-center sm:justify-end px-4 ">
                     <img
                       src={imageSrc}
                       alt={imageAlt}

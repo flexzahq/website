@@ -76,11 +76,11 @@ export function ScreensPreview() {
         <div className="mt-10"> 
           <div className="mx-auto max-w-[90vw] px-4 sm:px-6">
             <div ref={railRef} className="no-scrollbar">
-              <div ref={trackRef} className="flex gap-4" style={{ minWidth: "max-content" }}>
+              <div ref={trackRef} className="flex gap-8" style={{ minWidth: "max-content" }}>
                 {[...screenImages, ...screenImages].map((screen, index) => (
-                  <div key={`${screen.title}-${index}`} className="min-w-[260px] sm:min-w-[100px] md:min-w-[240px] lg:min-w-[260px] rounded-[1.25rem]">
+                  <div key={`${screen.title}-${index}`} className="w-full">
                     <div className="rounded-[1.25rem] overflow-hidden">
-                      <img src={screen.src} alt={screen.title} className="w-full object-contain md:h-[320px] lg:h-[400px] sm:h-[200px]" />
+                      <img src={screen.src} alt={screen.title} className="w-full object-contain h-[350px] sm:h-[200px] md:h-[320px] lg:h-[400px]" />
                     </div>
                     <div className="p-3 text-center">
                       <h3 className="text-base font-semibold text-ink">{screen.title}</h3>

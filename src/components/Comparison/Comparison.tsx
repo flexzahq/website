@@ -13,9 +13,9 @@ export function Comparison() {
             <div className="bg-primary p-5">Flexza</div>
           </div>
           {comparisonRows.map(([traditional, flexza]) => (
-            <div key={traditional} className="grid grid-cols-2 border-t border-black/5 text-sm font-bold sm:text-base">
-              <div className="p-5 text-muted">{traditional}</div>
-              <div className="border-l border-black/5 bg-secondary/60 p-5 text-ink">{flexza}</div>
+            <div key={traditional} className="group grid grid-cols-2 border-t border-black/5 text-sm font-bold transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:text-base">
+              <div className="p-5 text-muted transition duration-300 group-hover:bg-black/[0.02]">{traditional}</div>
+              <div className="border-l border-black/5 bg-secondary/60 p-5 text-ink transition duration-300 group-hover:bg-secondary">{flexza}</div>
             </div>
           ))}
         </div>

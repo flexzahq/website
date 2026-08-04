@@ -8,8 +8,8 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <a href="#top" className="flex items-center gap-3 font-extrabold text-ink" aria-label="Flexza home">
-              <img src={logoPrimary} alt="" className="h-8 w-7 object-contain" />
-              <span className="text-xl">Flexza</span>
+              <img src={logoPrimary} alt="" className="w-12 object-contain"/>
+              <span className="text-4xl">Flexza</span>
             </a>
             <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
               Digital token and live queue management for clinics, salons, and service businesses.
@@ -21,9 +21,14 @@ export function Footer() {
                 <h3 className="text-sm font-extrabold text-ink">{group.title}</h3>
                 <ul className="mt-4 space-y-3">
                   {group.links.map((link) => (
-                    <li key={link}>
-                      <a href="#top" className="text-sm font-semibold text-muted transition hover:text-primary">
-                        {link}
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                        className="text-sm font-semibold text-muted transition hover:text-primary"
+                      >
+                        {link.label}
                       </a>
                     </li>
                   ))}
