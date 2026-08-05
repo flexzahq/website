@@ -11,7 +11,13 @@ export function FAQ() {
   return (
     <section id="faq" className="bg-secondary/55 py-20">
       <ScrollReveal className="section-shell max-w-4xl">
-        <SectionHeader eyebrow="FAQ" title="Questions peopleusually ask first." />
+        <SectionHeader eyebrow="FAQ" title={
+            <>
+              Questions people
+              <br />
+              usually ask first.
+            </>
+          } />
         <div className="mt-10 space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;

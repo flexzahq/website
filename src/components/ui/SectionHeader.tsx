@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { fadeUp } from "../../lib/motion";
 
 type SectionHeaderProps = {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   align?: "left" | "center";
   titleClassName?: string;
@@ -11,7 +12,7 @@ type SectionHeaderProps = {
 export function SectionHeader({ eyebrow, title, description, align = "center", titleClassName }: SectionHeaderProps) {
   return (
     <motion.div
-      className={`mx-auto max-w-3xl ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mx-auto max-w-2xl ${align === "center" ? "text-center" : "text-left"}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}

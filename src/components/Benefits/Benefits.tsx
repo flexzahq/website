@@ -12,7 +12,13 @@ export function Benefits() {
       <ScrollReveal className="section-shell">
         <SectionHeader
           eyebrow="Benefits"
-          title="Designed for both sides of the waiting room."
+          title={
+            <>
+              Made for patients.
+              <br />
+              Powered for clinics.
+            </>
+          }
           titleClassName="text-white"
           description="Patients get clarity. Clinics get control. Everyone gets a calmer day."
         />
@@ -29,7 +35,7 @@ export function Benefits() {
 
             return (
               <motion.article key={group.title} variants={fadeUp} className="group flex flex-col items-center gap-6 sm:flex-row sm:items-start relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] p-7 text-white">
-                <div className="w-full text-center sm:text-left"><h3 className="text-2xl font-extrabold">{group.title}</h3>
+                <div className="flex-1 text-center sm:text-left"><h3 className="text-2xl font-extrabold">{group.title}</h3>
                   <ul className="mt-6 space-y-4">
                     {group.items.map((item) => (
                       <li key={item} className="flex items-center justify-center gap-3 text-base font-semibold text-white/80 sm:justify-start sm:text-left">
@@ -40,7 +46,7 @@ export function Benefits() {
                   </ul></div>
 
                 <div className="flex flex-1 items-center sm:justify-end">
-                  <div className="mx-auto flex w-full justify-center sm:justify-end px-4 ">
+                  <div className="sm:justify-end px-4 ">
                     <img
                       src={imageSrc}
                       alt={imageAlt}

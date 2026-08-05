@@ -45,9 +45,21 @@ export function LeadPopup() {
     return () => window.removeEventListener("flexza:open-lead-popup", handleOpen);
   }, []);
 
+  const formatPhoneNumber = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 10);
+
+    if (digits.length <= 5) {
+      return digits;
+    }
+
+    return `${digits.slice(0, 5)} ${digits.slice(5)}`;
+  };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setForm((current) => ({ ...current, [name]: value }));
+    const nextValue = name === "phone" ? formatPhoneNumber(value) : value;
+
+    setForm((current) => ({ ...current, [name]: nextValue }));
     if (message) {
       setMessage("");
       setIsSuccess(false);
@@ -56,10 +68,17 @@ export function LeadPopup() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const normalizedPhone = form.phone.replace(/\s/g, "");
 
-    if (!form.name.trim() || !form.phone.trim()) {
+    if (!form.name.trim() || !normalizedPhone) {
       setIsSuccess(false);
       setMessage("Please enter your name and mobile number.");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(normalizedPhone)) {
+      setIsSuccess(false);
+      setMessage("Please enter a valid 10-digit mobile number.");
       return;
     }
 
@@ -67,37 +86,43 @@ export function LeadPopup() {
     setMessage("");
 
     try {
-      const endpoint = import.meta.env.VITE_LEAD_FORM_ENDPOINT as string | undefined;
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
       const payload = {
         name: form.name.trim(),
-        phone: form.phone.trim(),
+        phone: normalizedPhone,
         source: "landing-popup",
-        submittedAt: new Date().toISOString(),
+        submitted_at: new Date().toISOString(),
       };
 
-      if (endpoint) {
-        const response = await fetch(endpoint, {
+      if (supabaseUrl && supabaseAnonKey) {
+        const response = await fetch(`${supabaseUrl}/rest/v1/leads`, {
           method: "POST",
           headers: {
+            apikey: supabaseAnonKey,
+            Authorization: `Bearer ${supabaseAnonKey}`,
             "Content-Type": "application/json",
-            Accept: "application/json",
+            Prefer: "return=minimal",
           },
           body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
-          throw new Error("Unable to submit your request right now.");
+          const errorText = await response.text().catch(() => "");
+          throw new Error(errorText || "Unable to submit your request right now.");
         }
       } else {
         const existingLeads = window.localStorage.getItem("flexza-leads");
         const parsedLeads = existingLeads ? JSON.parse(existingLeads) : [];
-        parsedLeads.push(payload);
+        parsedLeads.push({ ...payload, submittedAt: payload.submitted_at });
         window.localStorage.setItem("flexza-leads", JSON.stringify(parsedLeads));
       }
 
       setIsSuccess(true);
       setMessage("Thanks! We will reach out to you shortly.");
       setForm({ name: "", phone: "" });
+      window.location.hash = "thank-you";
       window.setTimeout(() => setIsOpen(false), 1400);
     } catch (error) {
       setIsSuccess(false);
@@ -116,7 +141,7 @@ export function LeadPopup() {
       <AnimatePresence>
         {isOpen ? (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/70 px-4 py-6"
@@ -170,9 +195,11 @@ export function LeadPopup() {
                         <input
                           name="phone"
                           type="tel"
+                          inputMode="numeric"
+                          maxLength={11}
                           value={form.phone}
                           onChange={handleChange}
-                          placeholder="+971 50 123 4567"
+                          placeholder="98785 64324"
                           className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10"
                         />
                       </label>

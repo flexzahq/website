@@ -19,7 +19,6 @@ export default function Landing() {
     <main className="overflow-hidden bg-[#fbfdfc] text-ink">
       <Navbar />
       <Hero />
-
       <Problems />
       <Solution />
       <HowItWorks />

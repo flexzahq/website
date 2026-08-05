@@ -60,6 +60,64 @@ npm run dev -- --host
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | Run ESLint across the project |
 
+## Supabase Setup
+
+The request-a-demo popup in the CTA flow is already prepared to submit lead data to Supabase when the following environment variables are present:
+
+```bash
+VITE_SUPABASE_URL=https://<your-project>.supabase.co
+VITE_SUPABASE_ANON_KEY=<your-anon-key>
+```
+
+### 1. Create a Supabase project
+
+- Create a new project in [Supabase](https://supabase.com).
+- Go to the SQL Editor and run the following table creation script:
+
+```sql
+create table if not exists public.leads (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  phone text not null,
+  source text,
+  submitted_at timestamptz default now()
+);
+```
+
+### 2. Enable anonymous inserts
+
+Because the landing form is submitted from the browser, use an `anon` policy so the public form can insert a row:
+
+```sql
+alter table public.leads enable row level security;
+
+create policy "Allow anonymous lead inserts"
+on public.leads
+for insert
+with check (true);
+```
+
+If you want to keep `select` access closed, only the `insert` policy above is needed for the demo form.
+
+### 3. Add your environment variables
+
+Create a `.env` file in the project root:
+
+```bash
+VITE_SUPABASE_URL=https://kcjypliqhfhqvjgsvouw.supabase.co
+VITE_SUPABASE_ANON_KEY=<your-anon-key>
+```
+
+### 4. Verify the connection
+
+Start the app:
+
+```bash
+npm run dev
+```
+
+Then open the popup form, submit a test lead, and check the `leads` table in Supabase.
+
 ## Production Build
 
 ```bash

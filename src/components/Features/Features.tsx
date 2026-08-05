@@ -8,7 +8,7 @@ export function Features() {
   return (
     <section id="features" className="bg-secondary/55 py-20">
       <ScrollReveal className="section-shell">
-        <SectionHeader eyebrow="Features" title="Everything a growing service business needs to manage tokens." />
+        <SectionHeader eyebrow="Features" title="Everything you need to simplify token management." />
         <motion.div
           className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-5"
           initial="hidden"
