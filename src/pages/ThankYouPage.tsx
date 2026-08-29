@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer/Footer";
 import { Navbar } from "../components/Navbar/Navbar";
 import ThankYou from "../assets/thankyouman.webp";
 
 export default function ThankYouPage() {
+    const navigate = useNavigate();
+
     return (
         <main className="overflow-hidden bg-[#fbfdfc] text-ink">
             <Navbar />
@@ -26,7 +29,7 @@ export default function ThankYouPage() {
                     <button
                         type="button"
                         onClick={() => {
-                            window.location.hash = "landing";
+                            navigate("/");
                         }}
                         className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#4c8f8a]"
                     >

@@ -1,5 +1,14 @@
+import { Link } from "react-router-dom";
 import { footerGroups } from "../../lib/constants";
 import logoPrimary from "../../assets/flexza-logo-primary.svg";
+
+function toInternal(href: string) {
+  const [pathname, hash] = href.split("#");
+  return {
+    pathname: pathname || "/",
+    hash: hash ? `#${hash}` : "",
+  };
+}
 
 export function Footer() {
   return (
@@ -7,10 +16,10 @@ export function Footer() {
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <a href="#top" className="flex items-center gap-3 font-extrabold text-ink" aria-label="Flexza home">
+            <Link to="/" className="flex items-center gap-3 font-extrabold text-ink" aria-label="Flexza home">
               <img src={logoPrimary} alt="" className="w-12 object-contain"/>
               <span className="text-4xl">Flexza</span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
               Digital token and live queue management for clinics, salons, and service businesses.
             </p>
@@ -22,14 +31,23 @@ export function Footer() {
                 <ul className="mt-4 space-y-3">
                   {group.links.map((link) => (
                     <li key={link.label}>
-                      <a
-                        href={link.href}
-                        target={link.href.startsWith("http") ? "_blank" : undefined}
-                        rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                        className="text-sm font-semibold text-muted transition hover:text-primary"
-                      >
-                        {link.label}
-                      </a>
+                      {link.href.startsWith("http") ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm font-semibold text-muted transition hover:text-primary"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          to={toInternal(link.href)}
+                          className="text-sm font-semibold text-muted transition hover:text-primary"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

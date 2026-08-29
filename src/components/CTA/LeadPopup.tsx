@@ -122,7 +122,7 @@ export function LeadPopup() {
       setIsSuccess(true);
       setMessage("Thanks! We will reach out to you shortly.");
       setForm({ name: "", phone: "" });
-      window.location.hash = "thank-you";
+      window.location.assign("/thank-you");
       window.setTimeout(() => setIsOpen(false), 1400);
     } catch (error) {
       setIsSuccess(false);

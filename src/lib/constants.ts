@@ -68,32 +68,7 @@ export const comparisonRows = [
 
 export const screenItems = ["Patient Home", "Book Token", "Live Queue", "Doctor Dashboard", "Analytics", "Patient History"];
 
-export const faqs = [
-  {
-    question: "How does Flexza work?",
-    answer: "Clinics share a link or QR code, patients verify their mobile number, book a digital token, and track the live queue from their phone.",
-  },
-  {
-    question: "Is there any mobile app?",
-    answer: "Flexza is a responsive web app, so patients and clinics can use it from any modern browser without installing an app.",
-  },
-  {
-    question: "Can patients book from home?",
-    answer: "Yes. Clinics can allow patients to book a token before arriving and follow the queue remotely.",
-  },
-  {
-    question: "Can I use my own clinic domain?",
-    answer: "Custom domains can be supported for clinics that want a branded booking experience.",
-  },
-  {
-    question: "Does it support Gujarati?",
-    answer: "Yes. Flexza is designed with English and Gujarati support in mind using the Anek font family.",
-  },
-  {
-    question: "How long does setup take?",
-    answer: "Most clinics can be onboarded quickly after collecting basic business details, queue rules, and staff access requirements.",
-  },
-];
+export { faqs } from "./faq-data";
 
 export const trustedLogos = ["Aarogya Care", "Nova Clinic", "Smile Studio", "Urban Wellness", "CarePoint"];
 
@@ -118,23 +93,23 @@ export const footerGroups = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing (Coming Soon)", href: "#top" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Features", href: "/#features" },
+      { label: "Pricing (Coming Soon)", href: "/" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#privacy-policy" },
-      { label: "Terms of Service", href: "#terms-of-service" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-of-service" },
     ],
   },
   {
